@@ -20,6 +20,9 @@ class ToughQuestion2 {
                         case 1 : System.out.println("Enter the number of Slice of bread");
                         	bread = Integer.parseInt(br.readLine());
                         	//call the function which calculate the calories for only bread
+                            System.out.printf("%.3f",cal.calculateEnergy(cal.calculateCalories(bread)));
+                            System.out.println(" kJ of energy generated from "+cal.calculateCalories(bread)+" calories");
+
                         	System.out.println();
                         	break;
                         case 2 : System.out.println("Enter the number of Slice of bread");
@@ -27,6 +30,11 @@ class ToughQuestion2 {
                         	System.out.println("Enter the number teaspoon of Jam");
                         	jam = Integer.parseInt(br.readLine());
                         	//call the function which calculate the calories for only bread & jam
+                        	cal.calculateCalories(bread, jam);
+                        	System.out.printf("%.3f",cal.calculateEnergy(cal.calculateCalories(bread,jam)));
+                            System.out.println(" kJ of energy generated from "+cal.calculateCalories(bread,jam)+" calories");
+
+
                         	System.out.println();
                         	break;
                         case 3 : System.out.println("Enter the number of Slice of bread");
@@ -36,20 +44,42 @@ class ToughQuestion2 {
                         	System.out.println("Enter the number teaspoon of Butter");
                         	butter = Integer.parseInt(br.readLine());
                         	//call the function which calculate the calories for  bread,jam & butter
+                        	cal.calculateCalories(bread, jam,  butter);
+                        	System.out.printf("%.3f",cal.calculateEnergy(cal.calculateCalories(bread,jam,butter)));
+                            System.out.println(" kJ of energy generated from "+cal.calculateCalories(bread,jam,butter)+" calories");
+
+
                         	System.out.println();
                         	break;
                         }
-                        //System.out.printf("%.3f",ca.calculateEnergy());
-                        //System.out.println(" kJ of energy generated from "+ca.returnCalories()+" calories");
+                        //
+                       // System.out.printf("%.3f",cal.calculateEnergy(cal.calculateCalories(bread)));
+                        //
+                       // System.out.println(" kJ of energy generated from "+ca.returnCalories()+" calories");
             }
 }
 class Calories {
             
-            int calculateCalories() {
+            int calculateCalories(int noofBread) {
             //you have to overload this function for three parameters refer the question
-            	return -1;
+            	int val = (noofBread*74);
+            	return val;
             }
             
+            int calculateCalories(int noofBread,int noofjam) {
+            	int val=0;
+            return val=(noofBread*74)+(noofjam*26);
+}
+            int calculateCalories(int noofBread,int noofjam,int noofButter) {
+            	int val=0;
+            return val=(noofBread*74)+(noofjam*26)+(noofButter*102);
+}
             
+            
+            float calculateEnergy(int val) {
+        	   float energy=0.0f;
+        	   energy=(float)(val*4.1868);
+        	   return energy;
+           }
             
 }
